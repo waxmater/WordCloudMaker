@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="WordCloudTemplates\HappyBird.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Sdcb.WordCloud" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="WordCloudTemplates\HappyBird.png" />
   </ItemGroup>
 
 </Project>

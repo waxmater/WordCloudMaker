@@ -34,9 +34,9 @@ namespace WordCloudMaker.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult GetImage() 
+        public IActionResult GetImage()
         {
-            return View();
+            return File(WordCloudHelper.GenerateWordCloud(), "image/jpeg");
         }
     }
 }
