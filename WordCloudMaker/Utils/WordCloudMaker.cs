@@ -1,14 +1,13 @@
 ﻿using Sdcb.WordClouds;
 using SkiaSharp;
-using System.IO;
 
 namespace WordCloudMaker.Utils
 {
-    public static class WordCloudMaker
+    public static class WordCloudHelper
     {
-        public static byte[] GenerateWordCloud() 
+        public static byte[] GenerateWordCloud()
         {
-            WordCloud wc = WordCloud.Create(new WordCloudOptions(900, 900, MakeDemoScore())
+            WordCloud wc = WordCloud.Create(new WordCloudOptions(900, 900, MakeTempScore())
             {
                 FontManager = new FontManager([SKTypeface.FromFamilyName("Times New Roman")]),
                 Mask = MaskOptions.CreateWithForegroundColor(SKBitmap.Decode(
@@ -18,7 +17,25 @@ namespace WordCloudMaker.Utils
             return wc.ToSKBitmap().Encode(SKEncodedImageFormat.Png, 100).AsSpan().ToArray();
         }
 
-        static IEnumerable<WordScore> MakeDemoScore()
+        private static IEnumerable<WordScore> MakeTempScore()
+        {
+            List<WordScore> attractions = new()
+        {
+            new WordScore ( Score: 1, Word: "Эйфелева башня" ),
+            new WordScore ( Score: 2, Word: "Статуя Свободы" ),
+            new WordScore ( Score: 3, Word: "Колизей" ),
+            new WordScore ( Score: 4, Word: "Тадж-Махал" ),
+            new WordScore ( Score: 5, Word: "Большой каньон" ),
+            new WordScore ( Score: 6, Word: "Пирамида Хеопса" ),
+            new WordScore ( Score: 7, Word: "Сиднейская опера" ),
+            new WordScore ( Score: 8, Word: "Мачу-Пикчу" ),
+            new WordScore ( Score: 9, Word: "Биг-Бен" ),
+            new WordScore ( Score: 10, Word: "Кремль" )
+        };
+            return attractions;
+        }
+
+        private static IEnumerable<WordScore> MakeDemoScore()
         {
             string text = """
         459    cloud

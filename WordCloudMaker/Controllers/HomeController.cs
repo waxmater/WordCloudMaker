@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using WordCloudMaker.Models;
+using WordCloudMaker.Utils;
 
 namespace WordCloudMaker.Controllers
 {
@@ -15,6 +16,10 @@ namespace WordCloudMaker.Controllers
 
         public IActionResult Index()
         {
+            // Конвертируем 
+            string imreBase64Data = Convert.ToBase64String(WordCloudHelper.GenerateWordCloud());
+            string imgDataURL = string.Format("data:image/png;base64,{0}", imreBase64Data);
+            ViewBag.ImageData = imgDataURL;
             return View();
         }
 
@@ -27,6 +32,11 @@ namespace WordCloudMaker.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult GetImage() 
+        {
+            return View();
         }
     }
 }
