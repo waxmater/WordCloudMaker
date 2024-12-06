@@ -38,5 +38,10 @@ namespace WordCloudMaker.Controllers
         {
             return File(WordCloudHelper.GenerateWordCloud(), "image/jpeg");
         }
+
+        public IActionResult UploadSearches()
+        {
+            return File(WordCloudHelper.GenerateWordCloud(), "image/jpeg");
+        }
     }
 }
