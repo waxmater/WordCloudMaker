@@ -17,16 +17,16 @@ namespace WordCloudMaker.Utils
             return wc.ToSKBitmap().Encode(SKEncodedImageFormat.Png, 100).AsSpan().ToArray();
         }
 
-        private static void HAHA()
-        {
-            string key = "f1550cd1-bd27-41f9-aa1c-3a58c6cb353f";
-            string user = "maksimslane";
-            string url = @"http://xmlsearch.yandex.ru/xmlsearch?query={0}&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D10.docs-in-group%3D1&user={1}&key={2}";
-            string completeUrl = String.Format(url, "", user, key);
+        //private static void HAHA()
+        //{
+        //    string key = "f1550cd1-bd27-41f9-aa1c-3a58c6cb353f";
+        //    string user = "maksimslane";
+        //    string url = @"http://xmlsearch.yandex.ru/xmlsearch?query={0}&groupby=attr%3Dd.mode%3Ddeep.groups-on-page%3D10.docs-in-group%3D1&user={1}&key={2}";
+        //    string completeUrl = String.Format(url, "", user, key);
             
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(completeUrl);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-        }
+        //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(completeUrl);
+        //    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        //}
 
         private static IEnumerable<WordScore> MakeTempScore()
         {

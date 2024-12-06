@@ -2,8 +2,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">WordCloudMaker</h1>
-    <img src="@Url.Action("GetImage", "Home")" alt="Word Cloud" />
-    
-</div>
+<div class="container">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Введите тему">
+        <button class="btn btn-create ms-2">Создать</button>
+    </div>
+    <div placeholder="картинка" class="image-box">
+        <img src="@Url.Action("GetImage", "Home")" alt="Word Cloud" width="1200" height="1200"/>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button class="btn btn-cancel">Отмена</button>
+        <button class="btn btn-save">Сохранить картинку</button>
+    </div>
